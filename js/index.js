@@ -1,3 +1,23 @@
+var wordlists = {};
+
+$(window).load(function() {
+
+  $('#savedLists').change(function(event) {
+    var words = wordlists[event.target.value].words;
+    words = words.trim();
+    $('#words').val(words);
+  });
+
+  var select = $('#savedLists');
+  for (key in wordlists) {
+    var option = $('<option>');
+    option.attr('value', key);
+    option.text(wordlists[key].label);
+    select.append(option);
+  }
+});
+
+
 
 
 function generate() {
