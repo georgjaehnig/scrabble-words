@@ -3,9 +3,13 @@ var wordlists = {};
 $(window).load(function() {
 
   $('#savedLists').change(function(event) {
+    if (!event.target.value in wordlists) {
+      return;
+    }
     var words = wordlists[event.target.value].words;
     words = words.trim();
     $('#words').val(words);
+    generate();
   });
 
   var select = $('#savedLists');

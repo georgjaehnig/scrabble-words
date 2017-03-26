@@ -1,3 +1,8 @@
 #words {
   height: 10em;
 }
+
+tbody td:nth-of-type(odd),
+thead th:nth-of-type(odd){
+  background: #e0e0e0;
+}
