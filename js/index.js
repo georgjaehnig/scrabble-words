@@ -3,9 +3,9 @@
 function generate() {
 
   // Get words from textarea.
-  var listString = $('#list').val();
+  var wordsString = $('#words').val();
   // Split into array.
-  var words = listString.split("\n")
+  var words = wordsString.split("\n")
 
   // The matrix to build.
   var matrix = {};
