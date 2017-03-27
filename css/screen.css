@@ -4,5 +4,5 @@
 
 tbody td:nth-of-type(odd),
 thead th:nth-of-type(odd){
-  background: #e0e0e0;
+  background: #a0a0a0;
 }
