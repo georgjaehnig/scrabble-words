@@ -1,16 +1,23 @@
 var wordlists = {};
 
+var fillWords = function(key) {
+  var words = wordlists[key].words;
+  words = words.trim();
+  $('#words').val(words);
+  generate();
+}
+
 $(window).load(function() {
 
-  $('#savedLists').change(function(event) {
+  var savedListsChanged = function(event) {
     if (!event.target.value in wordlists) {
       return;
     }
-    var words = wordlists[event.target.value].words;
-    words = words.trim();
-    $('#words').val(words);
-    generate();
-  });
+    var key = event.target.value;
+    fillWords(key);
+  };
+
+  $('#savedLists').change(savedListsChanged);
 
   var select = $('#savedLists');
   for (key in wordlists) {
@@ -19,6 +26,10 @@ $(window).load(function() {
     option.text(wordlists[key].label);
     select.append(option);
   }
+
+  // Default: Set 'de'.
+  select.val('de'); 
+  fillWords('de');
 });
 
 
@@ -61,6 +72,7 @@ function generate() {
 
   // Build HTML table from matrix.
   var table = $('table');
+  table.empty();
   var tr = $('<tr>');
   var th = $('<th>&nbsp;</th>');
   tr.append(th);
