@@ -98,12 +98,12 @@ function generate() {
     for (i in lastLetters) {
       lastLetter = lastLetters[i];
       if (lastLetter in matrix[firstLetter]) {
-				if (cellContentStyle == 'word') {
-					var cellContent = matrix[firstLetter][lastLetter] 
-				}
-				else {
-					var cellContent = 'X';
-				}
+        if (cellContentStyle == 'word') {
+          var cellContent = matrix[firstLetter][lastLetter] 
+        }
+        else {
+          var cellContent = 'X';
+        }
         var td = $('<td>' + cellContent + '</td>');
       } 
       else {
