@@ -37,6 +37,8 @@ $(window).load(function() {
 
 function generate() {
 
+  var cellContentStyle = $('#cellContentStyle').val();
+
   // Get words from textarea.
   var wordsString = $('#words').val();
   // Split into array.
@@ -96,7 +98,13 @@ function generate() {
     for (i in lastLetters) {
       lastLetter = lastLetters[i];
       if (lastLetter in matrix[firstLetter]) {
-        var td = $('<td>' + matrix[firstLetter][lastLetter] + '</td>');
+				if (cellContentStyle == 'word') {
+					var cellContent = matrix[firstLetter][lastLetter] 
+				}
+				else {
+					var cellContent = 'X';
+				}
+        var td = $('<td>' + cellContent + '</td>');
       } 
       else {
         var td = $('<td>&nbsp;</td>');
