@@ -28,8 +28,8 @@ $(window).load(function() {
   }
 
   // Default: Set 'de'.
-  select.val('de'); 
-  fillWords('de');
+  select.val('de3'); 
+  fillWords('de3');
 });
 
 

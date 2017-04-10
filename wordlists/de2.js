@@ -1,4 +1,4 @@
-wordlists['de'] = {
+wordlists['de2'] = {
   label: 'German, 2-letter words',
   words: `
 AA
