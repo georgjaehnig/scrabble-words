@@ -2,10 +2,6 @@
   height: 10em;
 }
 
-tbody td:nth-of-type(odd),
-thead th:nth-of-type(odd){
-  background: #eee;
-}
 th, td {
   text-align: center;
 }
