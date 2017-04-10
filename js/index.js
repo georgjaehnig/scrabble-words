@@ -62,8 +62,11 @@ function generate() {
     var lastLetter = word[word.length-1];
     matrix[firstLetter] = matrix[firstLetter] || {};
 
+		if (!matrix[firstLetter][lastLetter]) {
+			matrix[firstLetter][lastLetter] = [];
+		}
     // Set matrix value with word.
-    matrix[firstLetter][lastLetter] = word;
+    matrix[firstLetter][lastLetter].push(word);
     // Remember last letter.
     lastLetters.push(lastLetter);
   }
@@ -99,7 +102,7 @@ function generate() {
       lastLetter = lastLetters[i];
       if (lastLetter in matrix[firstLetter]) {
         if (cellContentStyle == 'word') {
-          var cellContent = matrix[firstLetter][lastLetter] 
+          var cellContent = matrix[firstLetter][lastLetter].join('<br/>');
         }
         else {
           var cellContent = 'X';
