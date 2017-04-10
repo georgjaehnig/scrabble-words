@@ -27,9 +27,9 @@ $(window).load(function() {
     select.append(option);
   }
 
-  // Default: Set 'de'.
-  select.val('de3'); 
-  fillWords('de3');
+  // Default:
+  select.val('en2'); 
+  fillWords('en2');
 });
 
 
