@@ -46,7 +46,8 @@ function generate() {
 
   // The matrix to build.
   var matrix = {};
-  // Remember lastLetters extra.
+  // Remember firstLetters and lastLetters extra.
+  var firstLetters = [];
   var lastLetters = [];
 
   // Build matrix of words.
@@ -59,20 +60,23 @@ function generate() {
       continue; 
     }
     var firstLetter = word[0];
+    firstLetters.push(firstLetter);
     var lastLetter = word[word.length-1];
     matrix[firstLetter] = matrix[firstLetter] || {};
 
-		if (!matrix[firstLetter][lastLetter]) {
-			matrix[firstLetter][lastLetter] = [];
-		}
+    if (!matrix[firstLetter][lastLetter]) {
+      matrix[firstLetter][lastLetter] = [];
+    }
     // Set matrix value with word.
     matrix[firstLetter][lastLetter].push(word);
     // Remember last letter.
     lastLetters.push(lastLetter);
   }
 
-  // Cleanup lastLetters.
+  // Cleanup.
+  firstLetters = jQuery.unique(firstLetters);
   lastLetters = jQuery.unique(lastLetters);
+  firstLetters.sort();
   lastLetters.sort();
 
   // Build HTML table from matrix.
@@ -90,7 +94,9 @@ function generate() {
   }
   table.append(tr);
 
-  for (firstLetter in matrix) {
+  for (j in firstLetters) {
+
+    firstLetter = firstLetters[j];
 
     var tr = $('<tr>');
     // Head-column with firstLetters.
